@@ -8,11 +8,11 @@ function GalleryList({ galleryArray }) {
                 return (
                     <ul key={item.id}>
                         <li> ID: {item.id}</li>
-                        <li>
-                            <GalleryItem galleryImage={item.path} />
-                            {/* <img src={item.path} /> */}
-                        </li>
-                        <li> Description: {item.description}</li>
+                        <GalleryItem
+                            galleryImage={item.path}
+                            galleryDescription={item.description}
+                        />
+                        {/* <img src={item.path} /> */}
                         <li> Likes: {item.likes}</li>
                     </ul>
                 );
