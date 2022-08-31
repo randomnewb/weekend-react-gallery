@@ -1,7 +1,7 @@
 import "./GalleryList.css";
 import GalleryItem from "../GalleryItem/GalleryItem";
 
-function GalleryList({ galleryArray }) {
+function GalleryList({ galleryArray, galleryLike }) {
     return (
         <div>
             {galleryArray.map((item) => {
@@ -13,6 +13,7 @@ function GalleryList({ galleryArray }) {
                             galleryDescription={item.description}
                         />
                         {/* <img src={item.path} /> */}
+                        <button onClick={() => galleryLike(item)}>Like</button>
                         <li> Likes: {item.likes}</li>
                     </ul>
                 );

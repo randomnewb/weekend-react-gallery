@@ -16,8 +16,21 @@ function App() {
             url: "/gallery",
         })
             .then((response) => {
-                console.log(response);
                 setGalleryArray(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Something went wrong");
+            });
+    };
+
+    const galleryLike = (item) => {
+        Axios({
+            method: "PUT",
+            url: `/gallery/like/${item.id}`,
+        })
+            .then((response) => {
+                fetchGallery();
             })
             .catch((error) => {
                 console.log(error);
@@ -30,7 +43,10 @@ function App() {
             <header className="App-header">
                 <h1 className="App-title">Gallery of My Life</h1>
             </header>
-            <GalleryList galleryArray={galleryArray} />
+            <GalleryList
+                galleryArray={galleryArray}
+                galleryLike={galleryLike}
+            />
         </div>
     );
 }
