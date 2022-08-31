@@ -1,4 +1,5 @@
 import "./GalleryList.css";
+import GalleryItem from "../GalleryItem/GalleryItem";
 
 function GalleryList({ galleryArray }) {
     return (
@@ -8,7 +9,8 @@ function GalleryList({ galleryArray }) {
                     <ul key={item.id}>
                         <li> ID: {item.id}</li>
                         <li>
-                            <img src={item.path} />
+                            <GalleryItem galleryImage={item.path} />
+                            {/* <img src={item.path} /> */}
                         </li>
                         <li> Description: {item.description}</li>
                         <li> Likes: {item.likes}</li>
