@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
+import Header from "../Header/Header";
+import Container from "@mui/material/Container";
 import Axios from "axios";
 
 function App() {
@@ -39,15 +41,15 @@ function App() {
     };
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">Gallery of My Life</h1>
-            </header>
+        <Container
+            maxWidth="lg"
+            className="App">
+            <Header />
             <GalleryList
                 galleryArray={galleryArray}
                 galleryLike={galleryLike}
             />
-        </div>
+        </Container>
     );
 }
 

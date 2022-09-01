@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./GalleryItem.css";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 function GalleryItem({ galleryDescription, galleryImage }) {
     const [toggle, setToggle] = useState(false);
@@ -7,21 +9,23 @@ function GalleryItem({ galleryDescription, galleryImage }) {
     // console.log("desc:", galleryDescription, "image:", galleryImage);
 
     return (
-        <li>
+        <CardContent
+            // className="contentTop"
+            sx={{ height: "35%" }}>
             {toggle ? (
-                <span onClick={() => setToggle(!toggle)}>
+                <Typography onClick={() => setToggle(!toggle)}>
                     {galleryDescription}
-                </span>
+                </Typography>
             ) : (
-                <span>
+                <Typography>
                     <img
                         src={galleryImage}
                         style={{ width: "100px", height: "100px" }}
                         onClick={() => setToggle(!toggle)}
                     />
-                </span>
+                </Typography>
             )}
-        </li>
+        </CardContent>
     );
 }
 
