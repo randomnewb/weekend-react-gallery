@@ -51,6 +51,18 @@ To practice passing values through `props` in React, you will build the gallery 
     -   [x] Display the number likes for each item and include a like button.
     -   [x] When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
     -   [x] Update the gallery each time a like button is clicked.
+    -   [x] Install Material UI `npm install @mui/material @emotion/react @emotion/styled`
+-   [x] Source Roboto font
+    `
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    `
+-   [x] Source Font icons
+    `
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+    `
 
 ## STRETCH GOALS
 

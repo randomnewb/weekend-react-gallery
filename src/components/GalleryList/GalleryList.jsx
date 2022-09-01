@@ -7,7 +7,6 @@ function GalleryList({ galleryArray, galleryLike }) {
             {galleryArray.map((item) => {
                 return (
                     <ul key={item.id}>
-                        <li> ID: {item.id}</li>
                         <GalleryItem
                             galleryImage={item.path}
                             galleryDescription={item.description}

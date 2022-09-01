@@ -16,6 +16,7 @@ function GalleryItem({ galleryDescription, galleryImage }) {
                 <span>
                     <img
                         src={galleryImage}
+                        style={{ width: "100px", height: "100px" }}
                         onClick={() => setToggle(!toggle)}
                     />
                 </span>
