@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
 import Header from "../Header/Header";
+import GalleryForm from "../GalleryForm/GalleryForm";
 import Container from "@mui/material/Container";
 import Axios from "axios";
 
@@ -12,6 +13,7 @@ function App() {
         fetchGallery();
     }, []);
 
+    // GET
     const fetchGallery = () => {
         Axios({
             method: "GET",
@@ -26,12 +28,31 @@ function App() {
             });
     };
 
+    // PUT
     const galleryLike = (item) => {
         Axios({
             method: "PUT",
             url: `/gallery/like/${item.id}`,
         })
             .then((response) => {
+                fetchGallery();
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Something went wrong");
+            });
+    };
+
+    // POST
+    const submitGallery = (newGallery) => {
+        console.log(newGallery);
+        Axios({
+            method: "POST",
+            url: "/gallery",
+            data: newGallery,
+        })
+            .then((response) => {
+                console.log(response);
                 fetchGallery();
             })
             .catch((error) => {
@@ -49,6 +70,7 @@ function App() {
                 galleryArray={galleryArray}
                 galleryLike={galleryLike}
             />
+            <GalleryForm submitGallery={submitGallery} />
         </Container>
     );
 }

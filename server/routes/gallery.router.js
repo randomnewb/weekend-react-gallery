@@ -31,4 +31,22 @@ router.get("/", (req, res) => {
         });
 }); // END GET Route
 
+// POST Route
+router.post("/", (req, res) => {
+    const item = req.body;
+    const sql = `
+    INSERT INTO gallery (path, description)
+    VALUES ($1, $2);
+    `;
+    pool.query(sql, [item.path, item.description])
+        .then((result) => {
+            console.log("Adding gallery item to database", result);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("Error adding gallery item", error);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;
