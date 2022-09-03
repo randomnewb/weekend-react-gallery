@@ -15,16 +15,18 @@ function GalleryList({ galleryArray, galleryLike }) {
             // sm={6}
             // md={3}
             // p={3}
+            container
+            spacing={2}
             display="flex"
-            justifyContent="center"
-            alignItems="center"
+            justifyContent="space-evenly"
+            alignItems="space-evenly"
             // columns={{ lg: 5 }}
         >
             {galleryArray.map((item) => {
                 return (
                     <Card
-                        lg={3}
-                        sx={{ width: "280px", height: "350px" }}
+                        lg={2}
+                        sx={{ maxWidth: "400px", height: "200px" }}
                         key={item.id}>
                         <GalleryItem
                             galleryImage={item.path}

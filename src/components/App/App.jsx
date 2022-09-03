@@ -42,7 +42,7 @@ function App() {
 
     return (
         <Container
-            maxWidth="lg"
+            maxWidth="xl"
             className="App">
             <Header />
             <GalleryList
