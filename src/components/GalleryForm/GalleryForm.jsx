@@ -15,6 +15,12 @@ function GalleryForm({ submitGallery }) {
             description: galleryDescription,
         };
         submitGallery(newGallery);
+        clearForm();
+    };
+
+    const clearForm = () => {
+        setGalleryPath("");
+        setGalleryDescription("");
     };
 
     return (

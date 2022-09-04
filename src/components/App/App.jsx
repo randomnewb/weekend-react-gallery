@@ -61,6 +61,22 @@ function App() {
             });
     };
 
+    // DELETE
+    const galleryDelete = (galleryItem) => {
+        Axios({
+            method: "DELETE",
+            url: `/gallery/${galleryItem.id}`,
+        })
+            .then((response) => {
+                console.log(response);
+                fetchGallery();
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Something went wrong");
+            });
+    };
+
     return (
         <Container
             maxWidth="xl"
@@ -69,6 +85,7 @@ function App() {
             <GalleryList
                 galleryArray={galleryArray}
                 galleryLike={galleryLike}
+                galleryDelete={galleryDelete}
             />
             <GalleryForm submitGallery={submitGallery} />
         </Container>

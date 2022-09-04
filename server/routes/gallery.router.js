@@ -6,14 +6,20 @@ const pool = require("../modules/pool.js");
 
 // PUT Route
 router.put("/like/:id", (req, res) => {
-    console.log(req.params);
-    const galleryId = req.params.id;
-    for (const galleryItem of galleryItems) {
-        if (galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
+    const id = req.params.id;
+    const sql = `
+    UPDATE gallery
+    SET likes = likes + 1
+    WHERE id = $1
+    `;
+    pool.query(sql, [id])
+        .then((response) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log("Error adding a like", error);
+            res.sendStatus(500);
+        });
 }); // END PUT Route
 
 // GET Route
@@ -45,6 +51,23 @@ router.post("/", (req, res) => {
         })
         .catch((error) => {
             console.log("Error adding gallery item", error);
+            res.sendStatus(500);
+        });
+});
+
+// DELETE Route
+router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = `
+    DELETE FROM gallery
+    WHERE id = $1;
+    `;
+    pool.query(sql, [id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("Error deleting specific gallery item", error);
             res.sendStatus(500);
         });
 });

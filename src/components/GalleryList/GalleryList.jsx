@@ -7,7 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-function GalleryList({ galleryArray, galleryLike }) {
+function GalleryList({ galleryArray, galleryLike, galleryDelete }) {
     return (
         <Grid
             // item
@@ -35,6 +35,9 @@ function GalleryList({ galleryArray, galleryLike }) {
                         {/* <img src={item.path} /> */}
                         <CardContent className="cardBottom">
                             <CardActions sx={{ justifyContent: "center" }}>
+                                <Button onClick={() => galleryDelete(item)}>
+                                    Delete
+                                </Button>
                                 <Button onClick={() => galleryLike(item)}>
                                     Like
                                 </Button>
