@@ -52,7 +52,7 @@ function App() {
             data: newGallery,
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 fetchGallery();
             })
             .catch((error) => {
@@ -68,7 +68,7 @@ function App() {
             url: `/gallery/${galleryItem.id}`,
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 fetchGallery();
             })
             .catch((error) => {
