@@ -48,7 +48,12 @@ function GalleryList({ galleryArray, galleryLike, galleryDelete }) {
                                         Like
                                     </Button>
                                 </CardActions>
-                                <Typography> Likes: {item.likes} </Typography>
+                                {item.likes > 0 && (
+                                    <Typography>Likes: {item.likes}</Typography>
+                                )}
+                                {item.likes === 0 && (
+                                    <Typography> No Likes yet! </Typography>
+                                )}
                             </CardContent>
                         </Card>
                     );
